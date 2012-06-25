@@ -1,0 +1,38 @@
+#split-from, #split-to {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #eeeeee;
+    font-size: 0.9em;
+    font-family: monospace;
+}
+
+li.split {
+    position: relative;
+    padding: 0.3em 1em;
+    border-bottom: 0.2em solid #f0f0f0;
+}
+
+li.split:nth-child(odd) {
+    background: #f7f7f7;
+}
+
+.split-link {
+    position: absolute;
+    top: 0.3em;
+    left: 1em;
+}
+
+.split-summary {
+    margin-left: 6em;
+    margin-bottom: 0.5em;
+}
+
+.split-time {
+    display: block;
+    margin-left: 7.5em;
+    padding: 0.2em;
+    font-family: sans-serif;
+    font-size: 0.8em;
+    color: gray;
+}

@@ -1,0 +1,31 @@
+<html xmlns:py="http://genshi.edgewall.org/">
+    <py:if test="len(data['split_history']['from']) > 0 or len(data['split_history']['to']) > 0">
+        <div id="split-history">
+            <h2 id="split-history-header">Split History</h2>
+            <div py:if="data['split_history']['from']">
+                <h3>Split from</h3>
+                <ol id="split-from">
+                <py:for each="split in data['split_history']['from']">
+                    <li class="split">
+                        <a class="split-link" href="${data['href'].ticket(split['source'].id)}">#${split['source'].id}</a>
+                        <span class="split-summary">${split['source']['summary']}</span>
+                        <span class="split-time">${split['time']}</span>
+                    </li>
+                </py:for>
+                </ol>
+            </div>
+            <div py:if="data['split_history']['to']">
+                <h3>Split to</h3>
+                <ol id="split-to">
+                <py:for each="split in sorted(data['split_history']['to'], key=lambda s: s['time'])">
+                    <li class="split">
+                        <a class="split-link" href="${data['href'].ticket(split['target'].id)}">#${split['target'].id}</a>
+                        <span class="split-summary">${split['target']['summary']}</span>
+                        <span class="split-time">${split['time']}</span>
+                    </li>
+                </py:for>
+                </ol>
+            </div>
+        </div>
+    </py:if>
+</html>

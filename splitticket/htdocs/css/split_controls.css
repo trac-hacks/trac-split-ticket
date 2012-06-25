@@ -1,0 +1,96 @@
+#split-controls {
+    display: none;
+}
+
+#split-controls input,
+#split-controls select,
+#split-controls button {
+    font-size: 0.9em;
+}
+
+#input-existing-tickets {
+    width: 45%;
+}
+
+#toggle-split-options {
+    vertical-align: bottom;
+    margin-left: 0.3em;
+    font-size: 0.9em;
+    font-family: monospace;
+}
+
+#split-options {
+    display: none;
+    max-height: 25em;
+    overflow: auto;
+    list-style-type: none;
+    margin: 0.3em 0.2em;
+    padding: 0;
+    border: 1px solid #e7e7e7;
+}
+
+#split-options li {
+    position: relative;
+    padding: 0 0.5em;
+}
+
+.split-option-milestone {
+    margin: 0 0 0.1em 0;
+    background: #6c6c6c;
+    color: #ffffff;
+}
+
+.split-option-component {
+    background: #eeeeee;
+    border-bottom: 0.2em solid #c6c6c6;
+}
+
+.split-option-ticket {
+    margin: 0.5em 0;
+}
+
+.split-option-checkbox {
+}
+
+.split-option-id {
+    position: absolute;
+    top: 0.5em;
+    left: 3em;
+    line-height: 1.5em;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+.split-option-summary {
+    margin-left: 6em;
+    padding-top: 0.5em;
+}
+
+#new-tickets {
+    list-style-type: none;
+    margin: 0.5em 0;
+    padding: 0.5em 0;
+    border-bottom: 1px solid #e7e7e7;    
+}
+
+#new-tickets li {
+    margin-bottom: 0.5em;
+}
+
+#new-tickets input {
+    width: 45%;
+}
+
+#new-tickets select {
+    width: 20%;
+}
+
+.input-summary, .select-milestone, .select-component {
+    vertical-align: middle;
+    padding: 0.3em 0;
+}
+
+.remove-ticket {
+    vertical-align: middle;
+    padding: 0.3em 0.5em;
+}

@@ -1,0 +1,55 @@
+<html xmlns:py="http://genshi.edgewall.org/">
+    <div id="split-controls">
+        <fieldset>
+            <legend>Split to existing tickets</legend>
+            <py:choose test="len(data['split_history']['to']) > 0">
+                <py:when test="True">
+                    <input id="input-existing-tickets" name="field_split_existing" type="text" 
+                        value="${', '.join(str(s['target'].id) for s in data['split_history']['to'])}">
+                    </input>
+                </py:when>
+                <py:otherwise>
+                    <input id="input-existing-tickets" name="field_split_existing" type="text" placeholder="Enter Ticket IDs"></input>
+                </py:otherwise>
+            </py:choose>
+            <a id="toggle-split-options" href="javascript:;">choose from list</a>
+            <ol id="split-options">
+                <py:for each="milestone, components in data['split_options'].items()">
+                    <li class="split-option-milestone">${milestone}</li>
+                    <py:for each="component, tickets in components.items()">
+                        <li class="split-option-component">${component}</li>
+                        <py:for each="ticket in tickets">
+                            <li class="split-option-ticket">
+                                <input class="split-option-check" id="split-option-${ticket.id}" type="checkbox"></input>
+                                <a class="split-option-id" href="${data['href'].ticket(ticket.id)}">#${ticket.id}</a>
+                                <span class="split-option-summary">${ticket['summary']}</span>
+                            </li>
+                        </py:for>
+                    </py:for>
+                </py:for>
+            </ol>
+        </fieldset>
+        <fieldset>
+            <legend>Create new tickets for split</legend>
+            <ul id="new-tickets">
+                <li>
+                    <input class="input-summary" type="text" placeholder="Enter a Ticket Summary"></input>
+                    <select class="select-milestone">
+                        <option val="" disabled="true" selected="true">Select a Milestone</option>
+                        <py:for each="milestone in data['milestones']">
+                            <option val="${milestone}">${milestone}</option>
+                        </py:for>
+                    </select>
+                    <select class="select-component">
+                        <option val="" disabled="true" selected="true">Select a Component</option>
+                        <py:for each="component in data['components']">
+                            <option val="${component}">${component}</option>
+                        </py:for>
+                    </select>
+                    <button class="remove-ticket">remove</button>
+                </li>
+            </ul>
+            <button id="add-ticket">Add Another</button>
+        </fieldset>
+    </div>
+</html>
